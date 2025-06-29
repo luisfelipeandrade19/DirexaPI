@@ -15,7 +15,7 @@ function GoogleButton() {
   };
   return (
     <div>
-      <GoogleLogin onError={erroMessage} onSuccess={responseMessage} />;
+      <GoogleLogin onError={erroMessage} onSuccess={responseMessage} />
     </div>
   );
 }
