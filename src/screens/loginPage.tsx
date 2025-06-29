@@ -15,15 +15,17 @@ function LoginPage() {
         <img id="busImg" src={onibus} alt="Imagem de um onibus na cidade" />
       </aside>
       <aside id="right">
-        <ButtonForm id="loginButton" value="Login" />
-        <ButtonForm id="registerButton" value="Criar Conta" />
+        <div id="rightButtons">
+          <ButtonForm id="loginButton" value="Login" />
+          <ButtonForm id="registerButton" value="Criar Conta" />
+        </div>
         <form action="get">
           <h2>Fazer Login</h2>
           <InputEmail id="emaillogin" />
           <InputPassword />
           <LembrarButton />
-          <ButtonForm id="sendLogin" value="Entrar"/>
-          <GoogleButton/>
+          <ButtonForm id="sendLogin" value="Entrar" />
+          <GoogleButton />
         </form>
       </aside>
     </div>

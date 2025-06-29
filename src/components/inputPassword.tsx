@@ -9,15 +9,17 @@ function InputPassword() {
 
   return (
     <label className="password">
-      <input
-        type={isShow ? "text" : "password"}
-        id="password"
-        placeholder="Digite a sua senha"
-      />
-      <button onClick={handlePassword} type="button">
-        {!isShow && <Eye />}
-        {isShow && <EyeOff />}
-      </button>
+      <div className="input-wrapper">
+        <input
+          type={isShow ? "text" : "password"}
+          id="password"
+          placeholder="Digite a sua senha"
+        />
+        <button onClick={handlePassword} type="button">
+          {!isShow && <Eye />}
+          {isShow && <EyeOff />}
+        </button>
+      </div>
     </label>
   );
 }

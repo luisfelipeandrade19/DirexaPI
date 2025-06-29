@@ -6,7 +6,7 @@ function GoogleButton() {
   const responseMessage: GoogleLoginProps["onSuccess"] = (
     response: CredentialResponse
   ) => {
-    console.log("Login bem sucidido", response);
+    console.log("Login success", response);
   };
   const erroMessage = () => {
     console.log(

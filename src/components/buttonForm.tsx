@@ -1,4 +1,6 @@
-function ButtonForm({ id = "", value = ""}) {
-  return <input type="button" id={id} value={value} />;
+import "../components/buttonForm.css";
+
+function ButtonForm({ id = "", value = "" }) {
+  return <input className="interactiveButtons" type="button" id={id} value={value} />;
 }
 export default ButtonForm;

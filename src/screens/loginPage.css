@@ -4,29 +4,68 @@
   margin: 0;
   padding: 0;
   font-family: "Cambay", sans-serif;
-  color: #FFFFFF;
+  color: #000000;
+  font-size: 20px;
 }
+
 #container {
   display: flex;
   justify-content: space-between;
 }
+
 #logoDirexa {
   padding: 50px 0px 50px 0px;
   width: 217px;
 }
+
 #busImg {
   width: 900px;
   margin-top: 60px;
 }
+
 #left {
   display: flex;
   flex-direction: column;
   margin-left: 150px;
 }
+
 #right {
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border-radius: 30px 0px 0px 30px;
   width: 505px;
   height: 100vh;
   background-color: #162051;
+}
+
+div #rightButtons {
+  width: 389px;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  margin: 56px;
+}
+
+#loginButton {
+  background-color: #7f80e9;
+  border: none;
+  box-shadow: 3px 3px 40px 8px rgba(127, 128, 233, 0.15);
+}
+
+form {
+  background-color: #7f80e9;
+  width: 389px;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form h2{
+    padding: 15px;
+    font-weight: 200;
+    font-size: 40px;
 }
