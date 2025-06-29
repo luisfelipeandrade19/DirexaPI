@@ -11,8 +11,8 @@ function LoginPage() {
   return (
     <div id="container">
       <aside id="left">
-        <img src={logo} alt="Logo do sistema Direxa" />
-        <img src={onibus} alt="Imagem de um onibus na cidade" />
+        <img id="logoDirexa" src={logo} alt="Logo do sistema Direxa" />
+        <img id="busImg" src={onibus} alt="Imagem de um onibus na cidade" />
       </aside>
       <aside id="right">
         <ButtonForm id="loginButton" value="Login" />
@@ -22,6 +22,7 @@ function LoginPage() {
           <InputEmail id="emaillogin" />
           <InputPassword />
           <LembrarButton />
+          <ButtonForm id="sendLogin" value="Entrar"/>
           <GoogleButton/>
         </form>
       </aside>

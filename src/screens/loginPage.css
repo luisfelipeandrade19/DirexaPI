@@ -1,7 +1,23 @@
-img{
-    width: 300px;
+* {
+  margin: 0;
+  padding: 0;
+}
+#container {
+  display: flex;
 }
 
-#container{
-    display: flex;
+#logoDirexa {
+ 
+  width: 250px;
+}
+
+#busImg {
+  width: 800px;
+  margin-left: 150px;
+}
+
+#left {
+  
+  display: flex;
+  flex-direction: column;
 }
