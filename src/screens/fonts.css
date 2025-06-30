@@ -1,23 +1,6 @@
-.cambay-regular {
-  font-family: "Cambay", sans-serif;
-  font-weight: 400;
+.figtree {
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
   font-style: normal;
-}
-
-.cambay-bold {
-  font-family: "Cambay", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.cambay-regular-italic {
-  font-family: "Cambay", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.cambay-bold-italic {
-  font-family: "Cambay", sans-serif;
-  font-weight: 700;
-  font-style: italic;
 }

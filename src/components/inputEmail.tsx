@@ -1,7 +1,9 @@
-function InputEmail({ id = "inputEmail", placeholder = "Digite seu email" }) {
+import "./inputEmail.css"
+
+function InputEmail({  placeholder = "Digite seu email" }) {
   return (
     <div>
-      <input type="email" id={id} placeholder={placeholder} />
+      <input type="email" id="inputEmail" placeholder={placeholder} />
     </div>
   );
 }

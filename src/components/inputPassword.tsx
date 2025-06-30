@@ -16,8 +16,8 @@ function InputPassword() {
           placeholder="Digite a sua senha"
         />
         <button onClick={handlePassword} type="button">
-          {!isShow && <Eye />}
-          {isShow && <EyeOff />}
+          {!isShow && <Eye width="20px"/>}
+          {isShow && <EyeOff width="20px"/>}
         </button>
       </div>
     </label>

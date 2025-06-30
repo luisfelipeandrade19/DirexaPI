@@ -1,9 +1,9 @@
 function LembrarButton() {
   return (
-    <div>
+    <label id="buttonLembrar">
       <input type="checkbox" name="lembrarButton" id="lembrar" />
-      <label htmlFor="lembrar">Lembrar-se</label>
-    </div>
+      Lembrar-se
+    </label>
   );
 }
 export default LembrarButton;
