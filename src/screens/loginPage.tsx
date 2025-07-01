@@ -19,14 +19,12 @@ function LoginPage() {
           <ButtonForm
             id="loginButton"
             value="Login"
-            onClick={() => (window.location.href = "https://www.youtube.com/")}
+            onClick={() => (window.location.href = "/")}
           />
           <ButtonForm
             id="registerButton"
             value="Criar Conta"
-            onClick={() =>
-              (window.location.href = "https://drive.google.com/drive/u/0/home")
-            }
+            onClick={() => (window.location.href = "/register")}
           />
         </div>
         <form action="get">

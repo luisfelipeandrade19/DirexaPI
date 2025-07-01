@@ -4,10 +4,11 @@ import ButtonForm from "../components/buttonForm";
 import GoogleButton from "../components/googleButton";
 import InputEmail from "../components/inputEmail";
 import InputPassword from "../components/inputPassword";
-import LembrarButton from "../components/lembrarButton";
+
+import InputUser from "../components/inputUser"
 import "./registerPage.css";
 
-function LoginPage() {
+function RegisterPage() {
   return (
     <div id="container">
       <aside id="left">
@@ -19,22 +20,20 @@ function LoginPage() {
           <ButtonForm
             id="loginButton"
             value="Login"
-            onClick={() => (window.location.href = "https://www.youtube.com/")}
+            onClick={() => (window.location.href = "/")}
           />
           <ButtonForm
             id="registerButton"
             value="Criar Conta"
-            onClick={() =>
-              (window.location.href = "https://drive.google.com/drive/u/0/home")
-            }
+            onClick={() => (window.location.href = "/register")}
           />
         </div>
         <form action="get">
-          <h2 id="titleLogin">Fazer Login</h2>
+          <h2 id="titleLogin">Fazer Cadastro</h2>
+          <InputUser/>
           <InputEmail />
           <InputPassword />
           <div id="entrarAndLembrar">
-            <LembrarButton />
             <ButtonForm
               id="sendLogin"
               value="Entrar"
@@ -51,4 +50,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default RegisterPage;

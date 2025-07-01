@@ -81,22 +81,12 @@ form h2 {
   padding: 13px;
   width: 340px;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
 }
 #sendLogin {
   background-color: #162051;
   width: 150px;
   height: 50px;
-}
-
-#buttonLembrar {
-  padding-left: 20px;
-  padding-top: 13px;
-  color: #d9d9d9;
-}
-
-#buttonLembrar input[type="checkbox"] {
-  margin-right: 8px;
 }
 
 #buttonGoogle {

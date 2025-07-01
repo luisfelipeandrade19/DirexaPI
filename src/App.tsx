@@ -1,5 +1,7 @@
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import LoginPage from "./screens/loginPage";
+import RegisterPage from "./screens/registerPage"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const CLIENT_ID =
@@ -7,7 +9,12 @@ function App() {
   return (
     <>
       <GoogleOAuthProvider clientId={CLIENT_ID}>
-        <LoginPage />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Routes>
+        </BrowserRouter>
       </GoogleOAuthProvider>
     </>
   );
