@@ -9,12 +9,12 @@ import "./loginPage.css";
 
 function LoginPage() {
   return (
-    <div id="container">
-      <aside id="left">
+    <div className="loginPage container">
+      <aside className="left">
         <img id="logoDirexa" src={logo} alt="Logo do sistema Direxa" />
         <img id="busImg" src={onibus} alt="Imagem de um onibus na cidade" />
       </aside>
-      <aside id="right">
+      <aside className="right">
         <div id="rightButtons">
           <ButtonForm
             id="loginButton"
