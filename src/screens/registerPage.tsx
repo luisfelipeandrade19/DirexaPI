@@ -5,7 +5,7 @@ import GoogleButton from "../components/googleButton";
 import InputEmail from "../components/inputEmail";
 import InputPassword from "../components/inputPassword";
 
-import InputUser from "../components/inputUser"
+import InputUser from "../components/inputUser";
 import "./registerPage.css";
 
 function RegisterPage() {
@@ -30,17 +30,14 @@ function RegisterPage() {
         </div>
         <form action="get">
           <h2 id="titleLogin">Fazer Cadastro</h2>
-          <InputUser/>
+          <InputUser />
           <InputEmail />
           <InputPassword />
           <div id="entrarAndLembrar">
             <ButtonForm
               id="sendLogin"
               value="Entrar"
-              onClick={() =>
-                (window.location.href =
-                  "https://drive.google.com/drive/u/0/home")
-              }
+              onClick={() => (window.location.href = "/home")}
             />
           </div>
           <GoogleButton />

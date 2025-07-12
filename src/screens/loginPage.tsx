@@ -38,7 +38,7 @@ function LoginPage() {
               value="Entrar"
               onClick={() =>
                 (window.location.href =
-                  "https://drive.google.com/drive/u/0/home")
+                  "/home")
               }
             />
           </div>
