@@ -1,0 +1,95 @@
+@import "/src/screens/fonts.css";
+
+.homePage * {
+  margin: 0;
+  padding: 0;
+  font-family: "Figtree", sans-serif;
+}
+
+.homePage .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 3vw;
+  padding-top: 5vh;
+  background-color: #162051;
+
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+.homePage .left {
+  text-align: center;
+  position: relative;
+  justify-content: center;
+}
+
+.homePage #checkInButtom {
+  position: absolute;
+  top: 72vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1500;
+  background-color: #7f80e9;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10vb;
+  width: 20vw;
+  height: 10vh;
+  border: none;
+
+  color: #d9d9d9;
+  font-size: 20px !important;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.homePage #checkInButtom:hover {
+  background-color: #6e6fc9;
+}
+
+.homePage .right {
+  display: flex;
+  flex-direction: column;
+  width: 300vw;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  margin-right: 3%;
+}
+
+.homePage #title {
+  color: #d9d9d9;
+  font-weight: 500;
+  font-size: 40px;
+  padding: 15px;
+}
+
+.homePage .stop {
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #7f80e9;
+  width: 300px;
+
+  border: solid 2px #7f80e9;
+
+  border-radius: 0.7vi;
+}
+
+.homePage li {
+  list-style-position: inside;
+}
+
+.homePage .stop h1 {
+  display: inline;
+}
+
+.homePage li::marker {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.homePage #cosmos {
+  background-color: #7f80e9;
+  color: #d9d9d9;
+}

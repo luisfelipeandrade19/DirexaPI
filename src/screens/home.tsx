@@ -1,5 +1,7 @@
 
+import ButtonForm from "../components/buttonForm"
 import Map from "../components/map"
+import "./home.css"
 
 
 function Home(){
@@ -10,9 +12,10 @@ function Home(){
             <div className="homePage container" >
                 <aside className="left" id="map">
                     <Map />
+                    <ButtonForm id="checkInButtom" value="Fazer Check-In"  />
                 </aside>
                 <aside className="right" id="routes">
-                    <h1>Paradas</h1>
+                    <h1 id="title">Paradas</h1>
                     <ol className="stopList">
                         <li className="stop" id="cosmos">
                             <h1>Cosmos</h1>

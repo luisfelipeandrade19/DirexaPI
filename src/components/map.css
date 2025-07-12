@@ -1,10 +1,13 @@
 #myMap {
-  height: 500px;
-  width: 100%;
-  z-index: 1;
+  height: 90vh;
+  width: 70vw;
+  z-index: 0;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
 }
 
 .leaflet-container {
   height: 100%;
   width: 100%;
+  border-radius: 15px;
 }

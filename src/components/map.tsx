@@ -42,7 +42,7 @@ function Map() {
           />
 
           <Marker position={[coords.latitude, coords.longitude]}>
-            <Popup>Você está aqui!</Popup>
+            <Popup>O onibus está aqui!</Popup>
           </Marker>
         </MapContainer>
       )}
