@@ -8,6 +8,11 @@ import InputPassword from "../components/inputPassword";
 import InputUser from "../components/inputUser";
 import "./css/registerPage.css";
 
+import { useNavigate } from "react-router-dom";
+
+// @ts-ignore
+import {useAuth} from "../hooks/useAuth"
+
 function RegisterPage() {
   return (
     <div className="registerPage container">
@@ -31,8 +36,14 @@ function RegisterPage() {
         <form action="get">
           <h2 id="titleLogin">Fazer Cadastro</h2>
           <InputUser />
-          <InputEmail />
-          <InputPassword />
+          <InputEmail 
+          // @ts-ignore
+            onChange={(e) => [setEmail(e.target.value), setError("")]}
+            value={email}/>
+          <InputPassword 
+          // @ts-ignore
+            onChange={(e) => [setEmail(e.target.value), setError("")]}
+            value={senha}/>
           <div id="entrarAndLembrar">
             <ButtonForm
               id="sendLogin"
