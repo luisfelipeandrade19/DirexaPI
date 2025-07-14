@@ -7,7 +7,21 @@ import InputPassword from "../components/inputPassword";
 import LembrarButton from "../components/lembrarButton";
 import "./css/loginPage.css";
 
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+// @ts-ignore
+import {useAuth} from "../hooks/useAuth"
+
+
 function LoginPage() {
+  const { signin } = useAuth()
+  const navigate = useNavigate()
+  
+  const [email, setEmail] = useState("")
+  const [senha, setSenha] = useState("")
+  const [error, setError] = useState("")
+
   return (
     <div className="loginPage container">
       <aside className="left">
@@ -29,8 +43,16 @@ function LoginPage() {
         </div>
         <form action="get">
           <h2 id="titleLogin">Fazer Login</h2>
-          <InputEmail />
-          <InputPassword />
+          <InputEmail 
+          // @ts-ignore
+            onChange={(e) => [setEmail(e.target.value), setError("")]}
+            value={email}
+          />
+          <InputPassword 
+          // @ts-ignore
+            onChange={(e) => [setSenha(e.target.value), setError("")]}
+            value={senha}
+          />
           <div id="entrarAndLembrar">
             <LembrarButton />
             <ButtonForm
