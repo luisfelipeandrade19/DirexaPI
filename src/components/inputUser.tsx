@@ -1,11 +1,22 @@
-import "./css/inputUser.css"
+// inputEmail.tsx
+type InputEmailProps = {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  placeholder?: string;
+};
 
-function InputUser({  placeholder = "Digite seu nome de usuário" }) {
+function InputUser({ onChange, value, placeholder = "Digite seu nome de usuario" }: InputEmailProps) {
   return (
     <div>
-      <input type="text" id="inputUser" placeholder={placeholder} />
+      <input 
+        onChange={onChange}
+        value={value}
+        type="email"
+        id="inputEmail"
+        placeholder={placeholder}
+      />
     </div>
   );
 }
 
-export default InputUser;
+export default InputUser

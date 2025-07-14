@@ -4,17 +4,24 @@ import Home from "../screens/home";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import LoginPage from "../screens/loginPage";
 
-const Private = ({ Item }) => {
-  const signed = false;
+import useAuth from "../hooks/useAuth";
+import { AuthProvider } from "../context/auth";
 
-  return signed > 0 ? <Item /> : <LoginPage />;
+interface PrivateProps {
+  Item: React.ComponentType;
+}
+
+const Private = ({ Item }: PrivateProps) => {
+  const { signed } = useAuth();
+  return signed ? <Item /> : <LoginPage />;
 };
 
 function RoutesApp() {
   const CLIENT_ID =
     "110870834981-v1j67e6av74jgdq51m0sgdheevd0kg2f.apps.googleusercontent.com";
+
   return (
-    <>
+    <AuthProvider>
       <GoogleOAuthProvider clientId={CLIENT_ID}>
         <BrowserRouter>
           <Routes>
@@ -24,7 +31,7 @@ function RoutesApp() {
           </Routes>
         </BrowserRouter>
       </GoogleOAuthProvider>
-    </>
+    </AuthProvider>
   );
 }
 

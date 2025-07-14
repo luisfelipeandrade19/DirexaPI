@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import logo from "../assets/logo/Logo.png";
 import onibus from "../assets/Onibus.png";
 import ButtonForm from "../components/buttonForm";
@@ -5,22 +6,35 @@ import GoogleButton from "../components/googleButton";
 import InputEmail from "../components/inputEmail";
 import InputPassword from "../components/inputPassword";
 import LembrarButton from "../components/lembrarButton";
+import useAuth from "../hooks/useAuth";
 import "./css/loginPage.css";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// @ts-ignore
-import {useAuth} from "../hooks/useAuth"
-
-
 function LoginPage() {
-  const { signin } = useAuth()
-  const navigate = useNavigate()
-  
-  const [email, setEmail] = useState("")
-  const [senha, setSenha] = useState("")
-  const [error, setError] = useState("")
+  const { signin } = useAuth();
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!email || !senha) {
+      setError("Preencha todos os campos");
+      return error;
+    }
+
+    const res = signin(email, senha);
+
+    if (res) {
+      setError(res);
+    }
+
+    navigate("/home");
+  };
 
   return (
     <div className="loginPage container">
@@ -43,13 +57,13 @@ function LoginPage() {
         </div>
         <form action="get">
           <h2 id="titleLogin">Fazer Login</h2>
-          <InputEmail 
-          // @ts-ignore
+          <InputEmail
+            // @ts-ignore
             onChange={(e) => [setEmail(e.target.value), setError("")]}
             value={email}
           />
-          <InputPassword 
-          // @ts-ignore
+          <InputPassword
+            // @ts-ignore
             onChange={(e) => [setSenha(e.target.value), setError("")]}
             value={senha}
           />
@@ -58,10 +72,7 @@ function LoginPage() {
             <ButtonForm
               id="sendLogin"
               value="Entrar"
-              onClick={() =>
-                (window.location.href =
-                  "/home")
-              }
+              onClick={ handleLogin}
             />
           </div>
           <GoogleButton />

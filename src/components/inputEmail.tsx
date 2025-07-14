@@ -1,11 +1,22 @@
 import "./css/inputEmail.css"
+type InputEmailProps = {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  placeholder?: string;
+};
 
-function InputEmail({  placeholder = "Digite seu email" }) {
+function InputEmail({ onChange, value, placeholder = "Digite seu email" }: InputEmailProps) {
   return (
     <div>
-      <input type="email" id="inputEmail" placeholder={placeholder} />
+      <input 
+        onChange={onChange}
+        value={value}
+        type="email"
+        id="inputEmail"
+        placeholder={placeholder}
+      />
     </div>
   );
 }
 
-export default InputEmail;
+export default InputEmail

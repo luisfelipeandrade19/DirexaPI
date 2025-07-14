@@ -1,15 +1,11 @@
-
-import RoutesApp from "./components/routesApp";
-
-
+import RoutesApp from "./components/routesApp.js";
 
 
 function App() {
-  
   return (
-    <>
+  
       <RoutesApp />
-    </>
+    
   );
 }
 
