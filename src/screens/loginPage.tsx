@@ -5,7 +5,7 @@ import GoogleButton from "../components/googleButton";
 import InputEmail from "../components/inputEmail";
 import InputPassword from "../components/inputPassword";
 import LembrarButton from "../components/lembrarButton";
-import "./loginPage.css";
+import "./css/loginPage.css";
 
 function LoginPage() {
   return (

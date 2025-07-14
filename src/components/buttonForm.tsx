@@ -1,4 +1,4 @@
-import "../components/buttonForm.css";
+import "./css/buttonForm.css";
 
 type ButtonFormProps = {
   id?: string;

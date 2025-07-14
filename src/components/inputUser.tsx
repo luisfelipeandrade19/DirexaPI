@@ -1,4 +1,4 @@
-import "./inputUser.css"
+import "./css/inputUser.css"
 
 function InputUser({  placeholder = "Digite seu nome de usuário" }) {
   return (

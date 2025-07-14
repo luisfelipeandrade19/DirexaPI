@@ -1,4 +1,4 @@
-import "./inputEmail.css"
+import "./css/inputEmail.css"
 
 function InputEmail({  placeholder = "Digite seu email" }) {
   return (

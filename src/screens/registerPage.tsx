@@ -6,7 +6,7 @@ import InputEmail from "../components/inputEmail";
 import InputPassword from "../components/inputPassword";
 
 import InputUser from "../components/inputUser";
-import "./registerPage.css";
+import "./css/registerPage.css";
 
 function RegisterPage() {
   return (

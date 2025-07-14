@@ -1,14 +1,13 @@
-@import "/src/screens/fonts.css";
+@import "/src/screens/css/fonts.css";
 
-.registerPage * {
-  margin: 0;
-  padding: 0;
+.loginPage * {
+  
   font-family: "Figtree", sans-serif;
   color: #000000;
   font-size: 20px;
 }
 
-.registerPage .container {
+.loginPage .container {
   display: flex;
   justify-content: space-between;
   height: 100vh;
@@ -16,26 +15,26 @@
   overflow: hidden; 
 }
 
-.registerPage #logoDirexa {
+.loginPage #logoDirexa {
   padding: 50px 0px 50px 0px;
   width: 217px;
 }
 
-.registerPage #busImg {
+.loginPage #busImg {
   width: 75%; 
   max-width: 900px; 
   margin-top: 60px;
 }
 
-.registerPage .left {
+.loginPage .left {
   display: flex;
   flex-direction: column;
   margin-left: 150px;
   width: calc(100vw - 655px);
 }
 
-.registerPage .right {
-  display: flex;
+.loginPage .right {
+   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -48,7 +47,7 @@
   right: 0; 
 }
 
-.registerPage div #rightButtons {
+.loginPage div #rightButtons {
   width: 389px;
   flex-direction: row;
   display: flex;
@@ -56,15 +55,23 @@
   margin: 56px;
 }
 
-.registerPage #loginButton {
+.loginPage #loginButton {
+  background-color: #7f80e9;
+  border: none;
+  color: #d9d9d9;
+  box-shadow: 3px 3px 40px 8px rgba(127, 128, 233, 0.15);
+}
+.loginPage #registerButton{
   background-color: transparent;
   border: 2px solid #7f80e9;
   border-radius: 10px;
   cursor: pointer;
   color:#7f80e9;
+  margin-left: 5px;
+  margin-bottom: 50px;
 }
 
-.registerPage form {
+.loginPage form {
   background-color: #7f80e9;
   width: 389px;
   height: auto;
@@ -74,42 +81,42 @@
   align-items: center;
 }
 
-.registerPage form h2 {
-  padding: 15px;
+.loginPage form h2 {
   font-weight: 200;
   font-size: 40px;
 }
 
-.registerPage #titleLogin {
+.loginPage #titleLogin {
   font-size: 38px;
   color: #d9d9d9;
   font-weight: 400;
   padding: 30px;
 }
 
-.registerPage #entrarAndLembrar {
+.loginPage #entrarAndLembrar {
   padding: 13px;
   width: 340px;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
 }
-.registerPage #sendLogin {
+.loginPage #sendLogin {
   background-color: #162051;
-  color: #d9d9d9;
+  color:#d9d9d9;
   width: 150px;
   height: 50px;
 }
 
-.registerPage #buttonGoogle {
-  width: 320px;
-  padding: 50px;
+.loginPage #buttonLembrar {
+  padding-left: 20px;
+  padding-top: 13px;
+  color: #d9d9d9;
 }
 
-.registerPage #registerButton {
-  background-color: #7f80e9;
-  border: none;
-  color: #d9d9d9;
-  box-shadow: 3px 3px 40px 8px rgba(127, 128, 233, 0.15);
-  margin-left: 5px;
-  margin-bottom: 50px;
+.loginPage #buttonLembrar input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.loginPage #buttonGoogle {
+  width: 320px;
+  padding: 50px;
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./inputPassword.css";
+import "./css/inputPassword.css";
 import { Eye, EyeOff } from "lucide-react";
 
 function InputPassword() {

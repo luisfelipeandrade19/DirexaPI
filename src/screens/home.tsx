@@ -1,12 +1,12 @@
 
 import ButtonForm from "../components/buttonForm"
 import Map from "../components/map"
-import "./home.css"
+import "./css/home.css"
 
 
 function Home(){
 
-    let time = "08:30"
+    const time = "08:30"
     return(
         <>
             <div className="homePage container" >
