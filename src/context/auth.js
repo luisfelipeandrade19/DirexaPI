@@ -35,5 +35,35 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  return <AuthContext.Provider> {children}</AuthContext.Provider>;
+  const signup = (email, password) => {
+    const usersStorage = JSON.parse(localStorage.getItem("users_db"))
+
+    const hasUser = usersStorage?.filter((user)=> user.email === email)
+
+    if(hasUser?.lenght){
+      return "Ja tem uma conta cadastrada com esse E-mail"
+    }
+
+    let newUser
+
+    if(usersStorage){
+      newUser = [...usersStorage, {email, password}]
+    } else {
+      newUser = [{email, password}]
+    }
+
+    localStorage.setItem("users_db", JSON.stringify(newUser))
+
+    return
+  }
+
+  const signout = () => {
+    setUser(null)
+    localStorage.removeItem("user_token")
+  }
+
+  return <AuthContext.Provider
+  value={{user, signed: !!user, signin, signup, signout}}
+  > {children}
+  </AuthContext.Provider>;
 };
