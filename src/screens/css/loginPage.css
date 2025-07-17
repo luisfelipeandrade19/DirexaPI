@@ -26,6 +26,8 @@
   margin-top: 60px;
 }
 
+
+
 .loginPage .left {
   display: flex;
   flex-direction: column;
@@ -47,12 +49,19 @@
   right: 0; 
 }
 
-.loginPage div #rightButtons {
-  width: 389px;
-  flex-direction: row;
+.loginPage aside.right{
+  width: 100%;
+  max-width: 28vw;
+  margin: 0 auto;
+}
+
+.loginPage #rightButtons{
+  width: 90%;
+  box-sizing: border-box;
+  gap: 2px;
   display: flex;
   justify-content: space-between;
-  margin: 56px;
+  margin: 3ch;
 }
 
 .loginPage #loginButton {
@@ -60,6 +69,8 @@
   border: none;
   color: #d9d9d9;
   box-shadow: 3px 3px 40px 8px rgba(127, 128, 233, 0.15);
+  width: 100%;
+  box-sizing: border-box;
 }
 .loginPage #registerButton{
   background-color: transparent;
@@ -69,17 +80,22 @@
   color:#7f80e9;
   margin-left: 5px;
   margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .loginPage form {
   background-color: #7f80e9;
-  width: 389px;
+  max-width: 25vw;
+  width: 100%;
   height: auto;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 
 .loginPage form h2 {
   font-weight: 200;
@@ -93,21 +109,23 @@
   padding: 30px;
 }
 
+
 .loginPage #entrarAndLembrar {
-  padding: 13px;
-  width: 340px;
+  padding-top: 10px;
+  padding-right: 5px;
+  width: 100%;
+  
   display: flex;
   justify-content: space-between;
 }
 .loginPage #sendLogin {
   background-color: #162051;
   color:#d9d9d9;
-  width: 150px;
+  width: 60%;
   height: 50px;
 }
 
 .loginPage #buttonLembrar {
-  padding-left: 20px;
   padding-top: 13px;
   color: #d9d9d9;
 }
@@ -117,6 +135,8 @@
 }
 
 .loginPage #buttonGoogle {
-  width: 320px;
-  padding: 50px;
+  width: 100%;
+  
+  padding-bottom: 50px;
+  padding-top: 50px;
 }

@@ -57,7 +57,8 @@ function LoginPage() {
         </div>
         <form action="get">
           <h2 id="titleLogin">Fazer Login</h2>
-          <InputEmail
+          <div className="inputForm">
+            <InputEmail
             // @ts-ignore
             onChange={(e) => [setEmail(e.target.value), setError("")]}
             value={email}
@@ -76,6 +77,7 @@ function LoginPage() {
             />
           </div>
           <GoogleButton />
+          </div>
         </form>
       </aside>
     </div>

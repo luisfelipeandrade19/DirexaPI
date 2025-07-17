@@ -48,9 +48,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setUser({ email, password });
         return;
       }
-      return "Email ou senha incorretos";
+      alert("Email ou senha incorretos") ;
     }
-    return "Usuário não cadastrado";
+    alert("Usuário não cadastrado") ;
   };
 
   const signup = (email: string, password: string, nome: string) => {
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const hasUser = usersStorage?.filter((user: User) => user.email === email);
 
     if (hasUser?.length) {
-      return "Já tem uma conta cadastrada com esse E-mail";
+      alert("Já tem uma conta cadastrada com esse E-mail") ;
     }
 
     const newUser = usersStorage.length 

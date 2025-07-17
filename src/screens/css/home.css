@@ -1,12 +1,12 @@
 @import "/src/screens/css/fonts.css";
 
-.homePage * {
+ * {
   margin: 0;
   padding: 0;
   font-family: "Figtree", sans-serif;
 }
 
-.homePage .container {
+.homePage.container {
   display: flex;
   justify-content: space-between;
   padding: 3vw;
@@ -54,7 +54,7 @@
   width: 300vw;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: 100%;
   margin-right: 3%;
 }
 
@@ -67,9 +67,9 @@
 
 .homePage .stop {
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 6vh;
   color: #7f80e9;
-  width: 300px;
+  width: 22vw;
 
   border: solid 2px #7f80e9;
 
