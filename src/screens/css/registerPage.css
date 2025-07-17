@@ -30,7 +30,7 @@
 .registerPage .left {
   display: flex;
   flex-direction: column;
-  margin-left: 150px;
+  margin-left: 150px; 
   width: calc(100vw - 655px);
 }
 
