@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import logo from "../assets/logo/Logo.png";
 import onibus from "../assets/Onibus.png";
 import ButtonForm from "../components/buttonForm";
@@ -13,26 +12,27 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
-  const { signin } = useAuth(); // Obtém a função signin do hook useAuth
+  const { signin } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async (e: React.MouseEvent) => { // Tornar a função assíncrona
+  const handleLogin = async (e: React.MouseEvent) => {
     e.preventDefault();
     if (!email || !senha) {
       setError("Preencha todos os campos");
-      return; // Apenas retorna, não precisa retornar 'error'
+      return;
     }
 
-    const res = await signin(email, senha); // Aguarda o resultado da função signin
+    const res = await signin(email, senha);
 
     if (res) {
-      setError(res); // Define o erro se houver
+      setError(res);
     } else {
-      navigate("/home"); // Navega para a home apenas em caso de sucesso
+      setError("");
+      navigate("/home");
     }
   };
 
@@ -47,25 +47,23 @@ function LoginPage() {
           <ButtonForm
             id="loginButton"
             value="Login"
-            onClick={() => (window.location.href = "/")}
+            onClick={() => {window.location.href = "/";}}
           />
           <ButtonForm
             id="registerButton"
             value="Criar Conta"
-            onClick={() => (window.location.href = "/register")}
+            onClick={() => {window.location.href = "/register";}}
           />
         </div>
         <form action="get">
           <h2 id="titleLogin">Fazer Login</h2>
-          <div className="inputForm">
-            <InputEmail
-            // @ts-ignore
-            onChange={(e) => [setEmail(e.target.value), setError("")]}
+          {error && <span style={{ color: 'red', display: 'block', textAlign: 'center', marginBottom: '10px' }}>{error}</span>}
+          <InputEmail
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setEmail(e.target.value), setError("")]}
             value={email}
           />
           <InputPassword
-            // @ts-ignore
-            onChange={(e) => [setSenha(e.target.value), setError("")]}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setSenha(e.target.value), setError("")]}
             value={senha}
           />
           <div id="entrarAndLembrar">
@@ -77,7 +75,6 @@ function LoginPage() {
             />
           </div>
           <GoogleButton />
-          </div>
         </form>
       </aside>
     </div>

@@ -113,16 +113,17 @@
 .loginPage #entrarAndLembrar {
   padding-top: 10px;
   padding-right: 5px;
-  width: 100%;
-  
+  width: 20vw;
   display: flex;
   justify-content: space-between;
+  margin-left: 12px;
 }
 .loginPage #sendLogin {
   background-color: #162051;
   color:#d9d9d9;
   width: 60%;
   height: 50px;
+  
 }
 
 .loginPage #buttonLembrar {
@@ -132,11 +133,11 @@
 
 .loginPage #buttonLembrar input[type="checkbox"] {
   margin-right: 8px;
+  
 }
 
 .loginPage #buttonGoogle {
-  width: 100%;
-  
+  width: 20vw;
   padding-bottom: 50px;
   padding-top: 50px;
 }

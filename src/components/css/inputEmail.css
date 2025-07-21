@@ -1,20 +1,50 @@
-#inputEmail{
+#inputEmail {
   background-color: #d9d9d9;
   border: none;
   border-radius: 10px;
-  width: 374px;
-  max-width: 374px;
+  width: 80vw; /* Retornou para a largura fixa original para desktop */
   height: 50px;
   padding-left: 20px;
   margin-bottom: 25px;
+  box-sizing: border-box;
 }
 
 #inputEmail::placeholder {
   color: #162051;
-  
 }
 
 #inputEmail:focus {
   outline: none;
   border: 1px solid #162051;
+}
+
+/* --- Media Queries para inputEmail (Agora as mudanças só acontecem em telas menores) --- */
+
+/* Para telas menores que 992px (laptops e desktops menores/tablets em modo paisagem) */
+@media (max-width: 992px) {
+  #inputEmail { /* Torna-se fluida em telas menores */
+    max-width: 80vw; /* Define um max-width para não ficar muito largo */
+    height: 48px;
+  }
+}
+
+/* Para telas menores que 768px (tablets em modo retrato e celulares grandes) */
+@media (max-width: 768px) {
+  #inputEmail {
+    max-width: 300px;
+    height: 45px;
+    padding-left: 15px;
+    font-size: 16px;
+  }
+}
+
+/* Para telas menores que 480px (celulares) */
+@media (max-width: 480px) {
+  #inputEmail {
+    max-width: 90%; /* Ocupa uma porcentagem maior em celulares muito pequenos */
+    height: 40px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
 }

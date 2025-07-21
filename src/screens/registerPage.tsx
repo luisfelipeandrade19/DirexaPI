@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import logo from "../assets/logo/Logo.png";
 import onibus from "../assets/Onibus.png";
 import ButtonForm from "../components/buttonForm";
@@ -20,22 +18,23 @@ function RegisterPage() {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const { signup } = useAuth(); // Obtém a função signup do hook useAuth
+  const { signup } = useAuth();
 
-  const handleSignup = async (e: React.MouseEvent) => { // Tornar a função assíncrona
+  const handleSignup = async (e: React.MouseEvent) => {
     e.preventDefault();
     if (!email || !senha || !nome) {
       setError("Preencha todos os campos");
-      return; // Apenas retorna, não precisa retornar 'error'
+      return;
     }
 
-    const res = await signup(email, senha, nome); // Aguarda o resultado da função signup
+    const res = await signup(email, senha, nome);
 
     if (res) {
-      setError(res); // Define o erro se houver
+      setError(res);
     } else {
-      alert("Usuário cadastrado com sucesso"); // Alerta de sucesso
-      navigate("/"); // Navega para a página de login após o cadastro
+      setError("");
+      alert("Usuário cadastrado com sucesso");
+      navigate("/");
     }
   };
 
@@ -50,41 +49,38 @@ function RegisterPage() {
           <ButtonForm
             id="loginButton"
             value="Login"
-            onClick={() => (window.location.href = "/")}
+            onClick={() => { window.location.href = "/"; }}
           />
           <ButtonForm
             id="registerButton"
             value="Criar Conta"
-            onClick={() => (window.location.href = "/register")}
+            onClick={() => { window.location.href = "/register"; }}
           />
         </div>
         <form action="get">
           <h2 id="titleLogin">Fazer Cadastro</h2>
-          {error && <span style={{ color: 'red' }}>{error}</span>} {/* Exibe o erro */}
+          {error && <span style={{ color: 'red', display: 'block', textAlign: 'center', marginBottom: '10px' }}>{error}</span>}
           <InputUser
-            // @ts-ignore
-            onChange={(e) => [setNome(e.target.value), setError("")]}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setNome(e.target.value), setError("")]}
             value={nome}
           />
 
           <InputEmail
-            // @ts-ignore
-            onChange={(e) => [setEmail(e.target.value), setError("")]}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setEmail(e.target.value), setError("")]}
             value={email}
           />
           <InputPassword
-            // @ts-ignore
-            onChange={(e) => [setSenha(e.target.value), setError("")]}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setSenha(e.target.value), setError("")]}
             value={senha}
           />
           <div id="entrarAndLembrar">
-            <ButtonForm id="sendLogin" value="Entrar" onClick={handleSignup} />
+            <ButtonForm id="sendLogin" value="Cadastrar" onClick={handleSignup} />
           </div>
           <GoogleButton />
         </form>
       </aside>
     </div>
-  )
+  );
 }
 
 export default RegisterPage;
