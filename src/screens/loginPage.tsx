@@ -13,27 +13,27 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
-  const { signin } = useAuth();
+  const { signin } = useAuth(); // Obtém a função signin do hook useAuth
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e: React.MouseEvent) => {
+  const handleLogin = async (e: React.MouseEvent) => { // Tornar a função assíncrona
     e.preventDefault();
     if (!email || !senha) {
       setError("Preencha todos os campos");
-      return error;
+      return; // Apenas retorna, não precisa retornar 'error'
     }
 
-    const res = signin(email, senha);
+    const res = await signin(email, senha); // Aguarda o resultado da função signin
 
     if (res) {
-      setError(res);
+      setError(res); // Define o erro se houver
+    } else {
+      navigate("/home"); // Navega para a home apenas em caso de sucesso
     }
-
-    navigate("/home");
   };
 
   return (

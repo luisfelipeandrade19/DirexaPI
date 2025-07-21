@@ -20,24 +20,23 @@ function RegisterPage() {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const { signup } = useAuth();
+  const { signup } = useAuth(); // Obtém a função signup do hook useAuth
 
-  const handleSignup = (e: React.MouseEvent) => {
+  const handleSignup = async (e: React.MouseEvent) => { // Tornar a função assíncrona
     e.preventDefault();
     if (!email || !senha || !nome) {
       setError("Preencha todos os campos");
-      return error;
+      return; // Apenas retorna, não precisa retornar 'error'
     }
 
-    const res = signup(email, senha, nome);
+    const res = await signup(email, senha, nome); // Aguarda o resultado da função signup
 
     if (res) {
-      setError(res);
-      return;
+      setError(res); // Define o erro se houver
+    } else {
+      alert("Usuário cadastrado com sucesso"); // Alerta de sucesso
+      navigate("/"); // Navega para a página de login após o cadastro
     }
-
-    alert("Usuario cadastrado com sucesso");
-    navigate("/");
   };
 
   return (
@@ -61,6 +60,7 @@ function RegisterPage() {
         </div>
         <form action="get">
           <h2 id="titleLogin">Fazer Cadastro</h2>
+          {error && <span style={{ color: 'red' }}>{error}</span>} {/* Exibe o erro */}
           <InputUser
             // @ts-ignore
             onChange={(e) => [setNome(e.target.value), setError("")]}
