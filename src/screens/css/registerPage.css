@@ -48,6 +48,16 @@
   right: 0;
 }
 
+.registerPage aside.right{
+  width: 100%;
+  max-width: 28vw;
+  margin: 0 auto;
+}
+
+.registerPage .inputs{
+  width: 80%;
+}
+
 .registerPage #rightButtons {
   width: 90%;
   box-sizing: border-box;
@@ -58,15 +68,14 @@
 }
 
 .registerPage #loginButton {
-background-color: transparent;
+  background-color: transparent;
   border: 2px solid #7f80e9;
   border-radius: 10px;
   cursor: pointer;
   color: #7f80e9;
   width: 100%;
   box-sizing: border-box;
-  margin-right: 5px;
-  height: 50px; /* Adicionado height fixo */
+  height: 100%;
   line-height: 46px;
 }
 
@@ -77,17 +86,15 @@ background-color: transparent;
   box-shadow: 3px 3px 40px 8px rgba(127, 128, 233, 0.15);
   width: 100%;
   box-sizing: border-box;
-  margin-left: 5px;
-  /* margin-bottom: 50px; REMOVIDO ou ajustado, veja abaixo */
-  height: 50px; /* Ajustado para height fixo igual ao outro */
+  height: 100%; 
   line-height: 50px;
 }
 
 
 .registerPage form {
   background-color: #7f80e9;
-  max-width: 25vw;
-  width: 90%;
+  max-width: 90%;
+  width: 100%;
   height: auto;
   border-radius: 10px;
   display: flex;
@@ -124,7 +131,7 @@ background-color: transparent;
 }
 
 .registerPage #buttonGoogle {
-  width: 85%;
+  width: 80%;
   padding-bottom: 40px;
   padding-top: 20px;
 }
@@ -139,7 +146,7 @@ background-color: transparent;
   }
 
   .registerPage .right {
-    width: 450px;
+    width: 100%;
   }
 
   .registerPage #busImg {
@@ -158,52 +165,29 @@ background-color: transparent;
 
 /* Para telas menores que 992px (tablets em modo paisagem) */
 @media (max-width: 992px) {
-  .registerPage .container {
-    flex-direction: column; /* Empilha os elementos */
-    height: auto;
-    overflow-y: auto; /* Permite rolagem vertical */
-  }
-
-
-  .registerPage .left {
-    margin: 0 auto; /* Centraliza o conteúdo da esquerda */
-    width: 90%;
-    align-items: center; /* Centraliza os itens dentro de 'left' */
-    padding-top: 20px;
-  }
-
-  .registerPage #logoDirexa {
-    padding: 30px 0;
-    width: 180px;
-  }
-
-  .registerPage #busImg {
-    width: 90%;
-    max-width: 600px;
-    margin-top: 30px;
-    margin-bottom: 50px; /* Adiciona espaço abaixo da imagem */
-  }
-
   .registerPage .right {
-    position: static; /* Remove a posição fixa */
-    width: 100%; /* Ocupa a largura total */
-    height: auto; /* Altura automática para se ajustar ao conteúdo */
-    border-radius: 0; /* Remove o border-radius para telas menores */
-    padding: 30px 0; /* Adiciona padding para espaçamento interno */
+    width: 100% !important; /* Força ocupar 100% da largura */
+    max-width: 100% !important; /* Remove qualquer limite de largura */
+    border-radius: 0; /* Remove bordas arredondadas */
+    padding: 30px 20px; /* Espaçamento interno adequado */
   }
 
   .registerPage form {
-    max-width: 90%; /* Aumenta a largura do formulário */
-    width: 90%; /* Ajusta a largura automaticamente */
+    max-width: 90% !important; /* Formulário mais largo */
+    width: 90% !important;
   }
 
   .registerPage #entrarAndLembrar {
-    width: 100%; /* Aumenta a largura do container de entrar e lembrar */
-    justify-content: center; /* Centraliza os itens */
+    width: 100% !important; /* Ocupa toda a largura */
+    justify-content: center; /* Centraliza conteúdo */
   }
 
-  .registerPage #sendLogin {
-    width: 90%; /* Aumenta a largura do botão de login */
+  .registerPage #buttonGoogle {
+    width: 80% !important; /* Botão Google mais largo */
+  }
+
+  .registerPage #sendLogin{
+    width: 80%;
   }
 }
 

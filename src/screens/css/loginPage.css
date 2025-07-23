@@ -1,7 +1,8 @@
 @import "/src/screens/css/fonts.css";
 
 .loginPage * {
-  
+  margin: 0;
+  padding: 0;
   font-family: "Figtree", sans-serif;
   color: #000000;
   font-size: 20px;
@@ -26,8 +27,6 @@
   margin-top: 60px;
 }
 
-
-
 .loginPage .left {
   display: flex;
   flex-direction: column;
@@ -36,7 +35,7 @@
 }
 
 .loginPage .right {
-   display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -55,6 +54,11 @@
   margin: 0 auto;
 }
 
+.loginPage .inputs{
+  width: 80%;
+}
+
+
 .loginPage #rightButtons{
   width: 90%;
   box-sizing: border-box;
@@ -71,23 +75,25 @@
   box-shadow: 3px 3px 40px 8px rgba(127, 128, 233, 0.15);
   width: 100%;
   box-sizing: border-box;
+  height: 100%; 
+  line-height: 50px;
 }
+
 .loginPage #registerButton{
   background-color: transparent;
   border: 2px solid #7f80e9;
   border-radius: 10px;
   cursor: pointer;
-  color:#7f80e9;
-  margin-left: 5px;
-  margin-bottom: 50px;
+  color: #7f80e9;
   width: 100%;
-  height: 100%;
   box-sizing: border-box;
+  height: 100%; 
+  line-height: 46px;
 }
 
 .loginPage form {
   background-color: #7f80e9;
-  max-width: 25vw;
+  max-width: 90%;
   width: 100%;
   height: auto;
   border-radius: 10px;
@@ -98,6 +104,7 @@
 
 
 .loginPage form h2 {
+  padding: 15px;
   font-weight: 200;
   font-size: 40px;
 }
@@ -137,7 +144,31 @@
 }
 
 .loginPage #buttonGoogle {
-  width: 20vw;
-  padding-bottom: 50px;
-  padding-top: 50px;
+  width: 80%;
+  padding-bottom: 40px;
+  padding-top: 20px;
+}
+
+/* Adicione ou substitua as regras existentes dentro do media query de 992px */
+@media (max-width: 992px) {
+  .loginPage .right {
+    width: 100% !important; /* Força ocupar 100% da largura */
+    max-width: 100% !important; /* Remove qualquer limite de largura */
+    border-radius: 0; /* Remove bordas arredondadas */
+    padding: 30px 20px; /* Espaçamento interno adequado */
+  }
+
+  .loginPage form {
+    max-width: 90% !important; /* Formulário mais largo */
+    width: 90% !important;
+  }
+
+  .loginPage #entrarAndLembrar {
+    width: 80% !important; /* Ocupa toda a largura */
+    justify-content: space-between; /* Centraliza conteúdo */
+  }
+
+  .loginPage #buttonGoogle {
+    width: 80% !important; /* Botão Google mais largo */
+  }
 }

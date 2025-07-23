@@ -60,19 +60,21 @@ function RegisterPage() {
         <form action="get">
           <h2 id="titleLogin">Fazer Cadastro</h2>
           {error && <span style={{ color: 'red', display: 'block', textAlign: 'center', marginBottom: '10px' }}>{error}</span>}
-          <InputUser
+          <div className="inputs">
+            <InputUser
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setNome(e.target.value), setError("")]}
             value={nome}
           />
 
-          <InputEmail
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setEmail(e.target.value), setError("")]}
-            value={email}
-          />
-          <InputPassword
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setSenha(e.target.value), setError("")]}
-            value={senha}
-          />
+            <InputEmail
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setEmail(e.target.value), setError("")]}
+              value={email}
+            />
+            <InputPassword
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setSenha(e.target.value), setError("")]}
+              value={senha}
+            />
+          </div>
           <div id="entrarAndLembrar">
             <ButtonForm id="sendLogin" value="Cadastrar" onClick={handleSignup} />
           </div>

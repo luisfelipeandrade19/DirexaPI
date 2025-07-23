@@ -58,14 +58,16 @@ function LoginPage() {
         <form action="get">
           <h2 id="titleLogin">Fazer Login</h2>
           {error && <span style={{ color: 'red', display: 'block', textAlign: 'center', marginBottom: '10px' }}>{error}</span>}
-          <InputEmail
+          <div className="inputs">
+            <InputEmail
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setEmail(e.target.value), setError("")]}
             value={email}
-          />
-          <InputPassword
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setSenha(e.target.value), setError("")]}
-            value={senha}
-          />
+            />
+            <InputPassword
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setSenha(e.target.value), setError("")]}
+              value={senha}
+            />
+          </div>
           <div id="entrarAndLembrar">
             <LembrarButton />
             <ButtonForm
