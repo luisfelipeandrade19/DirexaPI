@@ -9,6 +9,7 @@
 .homePage.container {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   padding: 3vw;
   padding-top: 5vh;
   background-color: #162051;
@@ -54,22 +55,23 @@
   width: 300vw;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 90%;
+  max-height: 90%;
   margin-right: 3%;
 }
 
 .homePage #title {
   color: #d9d9d9;
   font-weight: 500;
-  font-size: 40px;
+  font-size: 35px;
   padding: 15px;
 }
 
 .homePage .stop {
   padding: 10px;
-  margin-bottom: 6vh;
+  margin-bottom: 4vh;
   color: #7f80e9;
-  width: 22vw;
+  width: 20vw;
 
   border: solid 2px #7f80e9;
 
@@ -92,4 +94,51 @@
 .homePage #cosmos {
   background-color: #7f80e9;
   color: #d9d9d9;
+}
+
+@media (max-width: 1200px) {
+  .homePage.container {
+    flex-direction: column; /* Empilha verticalmente */
+    overflow-y: auto; /* Permite rolagem */
+  }
+
+  .homePage .left {
+    width: 65% !important;
+    height: 60vh; /* Altura fixa para o mapa */
+    margin-bottom: 200px;
+  }
+
+  .homePage .right {
+    width: 98% !important;
+    margin-right: 0;
+    margin-bottom: 20px;
+    max-height: none;
+  }
+
+  .homePage #checkInButtom {
+    top: 50vh; /* Posição relativa à altura do mapa */
+    width: 40vw;
+  }
+
+  .homePage .stop {
+  margin-right: 10px;
+  }
+
+  .homePage ol{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Ajustes para telas muito pequenas (opcional) */
+@media (max-width: 768px) {
+  .homePage #checkInButtom {
+    width: 60vw;
+    font-size: 16px !important;
+  }
+  
+  .homePage #title {
+    font-size: 28px;
+  }
 }
