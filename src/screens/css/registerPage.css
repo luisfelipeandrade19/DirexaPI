@@ -109,7 +109,7 @@
 }
 
 .registerPage #titleLogin {
-  font-size: 38px;
+  font-size: 35px;
   color: #d9d9d9;
   font-weight: 400;
   padding: 30px;
@@ -145,22 +145,26 @@
     width: calc(100vw - 550px);
   }
 
-  .registerPage .right {
-    width: 100%;
-  }
-
   .registerPage #busImg {
     width: 80%;
     margin-top: 40px;
   }
 
   .registerPage form {
-    max-width: 35vw;
+    max-width: 25vw;
   }
 
   .registerPage #entrarAndLembrar {
-    width: 25vw;
+    width: 20vw;
   }
+
+  .registerPage #titleLogin {
+  font-size: 28px;
+  color: #d9d9d9;
+  font-weight: 400;
+  padding: 30px;
+}
+
 }
 
 /* Para telas menores que 992px (tablets em modo paisagem) */
@@ -169,7 +173,6 @@
     width: 100% !important; /* Força ocupar 100% da largura */
     max-width: 100% !important; /* Remove qualquer limite de largura */
     border-radius: 0; /* Remove bordas arredondadas */
-    padding: 30px 20px; /* Espaçamento interno adequado */
   }
 
   .registerPage form {
@@ -211,24 +214,22 @@
   }
 
   .registerPage #rightButtons {
-    flex-direction: column; /* Empilha os botões */
+    width: 90%;
     align-items: center;
     margin: 2ch 0;
   }
 
   .registerPage #loginButton,
   .registerPage #registerButton {
-    margin: 10px 0; /* Espaçamento vertical entre os botões */
-    width: 80%; /* Define uma largura para os botões empilhados */
-    max-width: 300px; /* Garante que não fiquem muito largos */
+    width: 100%; /* Define uma largura para os botões empilhados */
   }
 
   .registerPage #entrarAndLembrar {
-    width: 85%;
+    width: 100%;
   }
 
   .registerPage #sendLogin {
-    width:58%;
+    width:80%;
   }
 
   .registerPage #buttonGoogle {
@@ -261,7 +262,7 @@
   }
 
   .registerPage #rightButtons {
-    width: 95%;
+    width: 90%;
   }
 
   .registerPage #loginButton,

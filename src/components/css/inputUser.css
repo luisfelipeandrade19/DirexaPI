@@ -18,3 +18,15 @@
   outline: none;
   border: 1px solid #162051;
 }
+
+@media (max-width: 992px) {
+  .password { /* O wrapper (.password) controla o max-width */
+    max-width: 100%; /* Ajuste o max-width do componente completo */
+  }
+  #password { /* O input dentro, só ajustes de altura se necessário */
+    height: 48px;
+  }
+  .input-wrapper button {
+    right: 12px; /* Ajuste para px para maior consistência */
+  }
+}

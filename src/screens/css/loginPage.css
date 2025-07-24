@@ -110,7 +110,7 @@
 }
 
 .loginPage #titleLogin {
-  font-size: 38px;
+  font-size: 32px;
   color: #d9d9d9;
   font-weight: 400;
   padding: 30px;
@@ -151,16 +151,17 @@
 
 /* Adicione ou substitua as regras existentes dentro do media query de 992px */
 @media (max-width: 992px) {
+
   .loginPage .right {
     width: 100% !important; /* Força ocupar 100% da largura */
     max-width: 100% !important; /* Remove qualquer limite de largura */
     border-radius: 0; /* Remove bordas arredondadas */
-    padding: 30px 20px; /* Espaçamento interno adequado */
   }
 
   .loginPage form {
     max-width: 90% !important; /* Formulário mais largo */
     width: 90% !important;
+    
   }
 
   .loginPage #entrarAndLembrar {
