@@ -104,8 +104,9 @@
 
   .homePage .left {
     width: 65% !important;
-    height: 60vh; /* Altura fixa para o mapa */
-    margin-bottom: 200px;
+    height: 100vh; /* Altura fixa para o mapa */
+    margin-bottom: 2vw;
+   
   }
 
   .homePage .right {
