@@ -15,36 +15,59 @@ const defaultIcon = L.icon({
 
 export function LocationMarker({ onPositionChange }: LocationMarkerProps) {
   const [position, setPosition] = useState<L.LatLng | null>(null);
+  const [accuracy, setAccuracy] = useState<number>(0);
+
   const map = useMapEvents({
     click() {
-      map.locate(); // Relocaliza ao clicar no mapa
-    },
-    locationfound(e) {
-      setPosition(e.latlng);
-      onPositionChange?.(e.latlng);
-      map.flyTo(e.latlng, 15);
-    },
-    locationerror(e) {
-      console.error("Erro ao obter localização:", e.message);
+      map.locate();
     }
   });
 
   useEffect(() => {
-    map.locate({ watch: true }); // Ativa monitoramento contínuo
-    return () => {
-      map.stopLocate(); // Limpeza ao desmontar
+    const options = {
+      enableHighAccuracy: true,  // Força uso do GPS quando disponível
+      timeout: 5000,            // Tempo mais curto para resposta
+      maximumAge: 0             // Sem cache - sempre posição fresca
     };
-  }, [map]);
+
+    const watchId = navigator.geolocation.watchPosition(
+      (pos) => {
+        const newPos = new L.LatLng(
+          pos.coords.latitude, 
+          pos.coords.longitude
+        );
+        
+        setPosition(newPos);
+        setAccuracy(pos.coords.accuracy);
+        onPositionChange?.(newPos);
+        
+        // Movimento mais preciso sem animação
+        map.setView(newPos, 18, { 
+          animate: true,
+          duration: 0.5
+        });
+      },
+      (err) => {
+        console.error("Erro GPS:", err);
+      },
+      options
+    );
+
+    return () => navigator.geolocation.clearWatch(watchId);
+  }, [map, onPositionChange]);
 
   if (!position) return null;
 
   return (
-    <Marker position={position} icon={defaultIcon}>
-      <Popup autoClose={false} closeOnClick={false}>
-        Sua localização atual
-        <br />
-        Lat: {position.lat.toFixed(4)}, Lng: {position.lng.toFixed(4)}
-      </Popup>
-    </Marker>
+    <> 
+      <Marker position={position} icon={defaultIcon}>
+        <Popup>
+          <div style={{ minWidth: '120px' }}>
+            <strong>Posição atual</strong><br />
+            Precisão: ~{Math.round(accuracy)}m
+          </div>
+        </Popup>
+      </Marker>
+    </>
   );
 }

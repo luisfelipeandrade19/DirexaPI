@@ -7,7 +7,7 @@ import {
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./map.css";
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import { LatLng } from "leaflet";
 import BusStopLayer from "./busStopLayer";
 import { LocationMarker } from "./location/locationMarker";
@@ -32,7 +32,7 @@ const busStops: BusStop[] = [
     id: 1,
     lat: -5.184346335998993,
     lng: -40.67220802175326,
-    radius: 50,
+    radius: 100,
     name: "Parada Cosmos",
   },
 ];
@@ -49,6 +49,7 @@ interface MapProps {
 function Map({ checkIns = [] }: MapProps) {
   const [userPosition, setUserPosition] = useState<LatLng | null>(null);
   const [currentStop, setCurrentStop] = useState<BusStop | null>(null);
+  const [mapCenter, setMapCenter] = useState<[number, number]>([-5.179671654506646, -40.669630109201194])
 
   const handleBusStopEnter = (stop: BusStop) => {
     if (currentStop?.id !== stop.id) {
@@ -56,6 +57,12 @@ function Map({ checkIns = [] }: MapProps) {
       alert(`Ônibus chegou na parada: ${stop.name}`);
     }
   };
+
+  useEffect(() => {
+    if (userPosition) {
+      setMapCenter([userPosition.lat, userPosition.lng]);
+    }
+  }, [userPosition]);
 
   const validCheckIns = checkIns.filter(
     (checkIn) =>
@@ -68,7 +75,7 @@ function Map({ checkIns = [] }: MapProps) {
   return (
     <MapContainer
       id="myMap"
-      center={[-5.1783, -40.6776]}
+      center={mapCenter}
       zoom={13}
       scrollWheelZoom={true}
     >
