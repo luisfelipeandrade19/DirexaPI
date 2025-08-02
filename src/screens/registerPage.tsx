@@ -1,13 +1,13 @@
 import logo from "../assets/logo/Logo.png";
 import onibus from "../assets/Onibus.png";
-import ButtonForm from "../components/buttonForm";
-import GoogleButton from "../components/googleButton";
-import InputEmail from "../components/inputEmail";
-import InputPassword from "../components/inputPassword";
-import InputUser from "../components/inputUser";
+import ButtonForm from "../components/ui/buttonForm";
+import GoogleButton from "../features/auth/components/googleButton";
+import InputEmail from "../components/ui/inputEmail";
+import InputPassword from "../components/ui/inputPassword";
+import InputUser from "../components/ui/inputUser";
 import "./css/registerPage.css";
 
-import useAuth from "../hooks/useAuth";
+import useAuth from "../features/auth/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -49,34 +49,62 @@ function RegisterPage() {
           <ButtonForm
             id="loginButton"
             value="Login"
-            onClick={() => { window.location.href = "/"; }}
+            onClick={() => {
+              window.location.href = "/";
+            }}
           />
           <ButtonForm
             id="registerButton"
             value="Criar Conta"
-            onClick={() => { window.location.href = "/register"; }}
+            onClick={() => {
+              window.location.href = "/register";
+            }}
           />
         </div>
         <form action="get">
           <h2 id="titleLogin">Fazer Cadastro</h2>
-          {error && <span style={{ color: 'red', display: 'block', textAlign: 'center', marginBottom: '10px' }}>{error}</span>}
+          {error && (
+            <span
+              style={{
+                color: "red",
+                display: "block",
+                textAlign: "center",
+                marginBottom: "10px",
+              }}
+            >
+              {error}
+            </span>
+          )}
           <div className="inputs">
             <InputUser
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setNome(e.target.value), setError("")]}
-            value={nome}
-          />
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => [
+                setNome(e.target.value),
+                setError(""),
+              ]}
+              value={nome}
+            />
 
             <InputEmail
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setEmail(e.target.value), setError("")]}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => [
+                setEmail(e.target.value),
+                setError(""),
+              ]}
               value={email}
             />
             <InputPassword
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => [setSenha(e.target.value), setError("")]}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => [
+                setSenha(e.target.value),
+                setError(""),
+              ]}
               value={senha}
             />
           </div>
           <div id="entrarAndLembrar">
-            <ButtonForm id="sendLogin" value="Cadastrar" onClick={handleSignup} />
+            <ButtonForm
+              id="sendLogin"
+              value="Cadastrar"
+              onClick={handleSignup}
+            />
           </div>
           <GoogleButton />
         </form>

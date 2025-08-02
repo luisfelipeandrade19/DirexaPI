@@ -1,4 +1,4 @@
-import "./css/inputEmail.css"
+import "../css/inputEmail.css";
 type InputEmailProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;

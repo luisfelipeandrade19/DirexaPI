@@ -1,12 +1,7 @@
-import RoutesApp from "./components/routesApp.js";
-
+import RoutesApp from "./lib/routes/routesApp.js";
 
 function App() {
-  return (
-  
-      <RoutesApp />
-    
-  );
+  return <RoutesApp />;
 }
 
 export default App;

@@ -1,8 +1,6 @@
 import { useState } from "react";
-import "./css/inputPassword.css";
+import "../css/inputPassword.css";
 import { Eye, EyeOff } from "lucide-react";
-
-import "./css/inputPassword.css"
 
 type InputPasswordProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
