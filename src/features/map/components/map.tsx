@@ -19,7 +19,7 @@ const checkInIcon = new L.DivIcon({
   iconAnchor: [10, 10],
 });
 
-// Ícone do ônibus
+
 const busIcon = new L.DivIcon({
   className: "bus-icon",
   html: '<div style="background-color: #e11d48; width: 24px; height: 24px; border-radius: 4px; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: bold;">🚌</div>',
