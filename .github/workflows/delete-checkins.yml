@@ -1,0 +1,14 @@
+name: Delete Old Checkins
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # Roda a cada 2 horas
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Supabase Function
+        run: |
+          curl -X POST 'https://tuntnznrzjmjazyawcut.supabase.co/functions/v1/delete-checkins-cron' \
+          -H 'Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}' \
+          -H 'Content-Type: application/json'
