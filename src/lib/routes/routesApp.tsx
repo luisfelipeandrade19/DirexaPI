@@ -17,8 +17,7 @@ const Private = ({ Item }: PrivateProps) => {
 };
 
 function RoutesApp() {
-  const CLIENT_ID =
-    "110870834981-v1j67e6av74jgdq51m0sgdheevd0kg2f.apps.googleusercontent.com";
+  const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
   return (
     <GoogleOAuthProvider clientId={CLIENT_ID}>
