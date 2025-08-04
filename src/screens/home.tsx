@@ -8,22 +8,19 @@ type CheckIn = {
   id: number;
   lat: number;
   lng: number;
-  timestamp: string; // O banco de dados retorna o timestamp como string
+  timestamp: string; 
 };
 
 function Home() {
   const [checkIns, setCheckIns] = useState<CheckIn[]>([]);
-
-  // Carrega check-ins do SERVIDOR ao iniciar e a cada 5 segundos
   useEffect(() => {
     const loadCheckInsFromServer = async () => {
       try {
-        // Busca os dados da tabela 'checkins' no Supabase
         const { data, error } = await supabase
           .from("checkins")
           .select("*")
-          .order("timestamp", { ascending: false }) // Opcional: pega os mais recentes primeiro
-          .limit(100); // Limita a 100 resultados
+          .order("timestamp", { ascending: false }) 
+          .limit(100); 
 
         if (error) {
           throw error;
@@ -38,7 +35,7 @@ function Home() {
     };
 
     loadCheckInsFromServer();
-    const interval = setInterval(loadCheckInsFromServer, 5000); 
+    const interval = setInterval(loadCheckInsFromServer, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -50,7 +47,7 @@ function Home() {
         const checkInData = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
-          timestamp: new Date().toISOString(), 
+          timestamp: new Date().toISOString(),
         };
 
         const { error } = await supabase.from("checkins").insert([checkInData]);
@@ -60,7 +57,6 @@ function Home() {
           alert("Não foi possível salvar seu check-in. Tente novamente.");
         } else {
           alert(`Check-in realizado com sucesso!`);
-          
         }
       },
       (error) => {
@@ -86,29 +82,22 @@ function Home() {
           <ol className="stopList">
             <li className="stop" id="cosmos">
               <h1>Cosmos</h1>
-              
             </li>
             <li className="stop" id="pracaMatriz">
               <h1>Praca Matriz</h1>
-              
             </li>
             <li className="stop" id="pracaPirulitos">
               <h1>Praca Pirulitos</h1>
-              
             </li>
             <li className="stop" id="policlinica">
               <h1>Policlinica</h1>
-             
             </li>
             <li className="stop" id="mercadinho">
               <h1>Mercadinho D.</h1>
-             
             </li>
             <li className="stop" id="aabb">
               <h1>AABB</h1>
-            
             </li>
-            
           </ol>
         </aside>
       </div>

@@ -38,7 +38,7 @@ export function LocationMarker({ onPositionChange }: LocationMarkerProps) {
         setAccuracy(pos.coords.accuracy);
         onPositionChange?.(newPos);
         
-        // Movimento mais preciso sem animação
+        
         map.setView(newPos, 18, { 
           animate: true,
           duration: 0.5
