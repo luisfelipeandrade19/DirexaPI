@@ -35,7 +35,6 @@ interface BusStop {
   name: string;
 }
 
-// CORRIGIDO: IDs únicos para cada parada
 const busStops: BusStop[] = [
   {
     id: 1,
@@ -45,37 +44,37 @@ const busStops: BusStop[] = [
     name: "Parada Cosmos",
   },
   {
-    id: 2, // CORRIGIDO: ID único
+    id: 2, 
     lat: -5.176473483746649,
     lng: -40.66503955403928, 
     radius: 100,
     name: "Parada dos Pirulitos",
   },
   {
-    id: 3, // CORRIGIDO: ID único
+    id: 3, 
     lat: -5.183437028573732,
     lng: -40.66315600845248, 
     radius: 100,
     name: "Parada da Policlinica",
   },
   {
-    id: 4, // CORRIGIDO: ID único
-    lat: -5.176038931836535,
-    lng: -40.667949737736166, 
+    id: 4, 
+    lat: -5.174086660473039,
+    lng: -40.66791156967396, 
     radius: 100,
     name: "Parada Correios",
   },
   {
-    id: 5, // CORRIGIDO: ID único
+    id: 5, 
     lat: -5.182936504400466,
     lng: -40.65606853655914, 
     radius: 100,
     name: "Parada Mercadinho Venancios",
   },
   {
-    id: 6, // CORRIGIDO: ID único
-    lat: -5.175109692752373,
-    lng: -40.65556848130367, 
+    id: 6, 
+    lat: -5.175883684763221,
+    lng: -40.65514354261176, 
     radius: 100,
     name: "Parada Sabor da terra",
   },
