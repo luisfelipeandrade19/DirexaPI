@@ -187,6 +187,7 @@ function Map({ checkIns = [], busPosition = null }: MapProps) {
             <div style={{ width: '12px', height: '12px', backgroundColor: '#10b981', borderRadius: '50%', marginRight: '5px', opacity: 0.6 }}></div>
             Ônibus presente
           </div>
+          
         </div>
       </div>
 

@@ -39,7 +39,7 @@ function Home() {
     };
 
     loadCheckInsFromServer();
-    const interval = setInterval(loadCheckInsFromServer, 5000); // Atualiza a cada 5 segundos
+    const interval = setInterval(loadCheckInsFromServer, 5000); 
     return () => clearInterval(interval);
   }, []);
 
@@ -51,10 +51,9 @@ function Home() {
         const checkInData = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
-          timestamp: new Date().toISOString(), // Usa o formato de data padrão do SQL
+          timestamp: new Date().toISOString(), 
         };
 
-        // Insere o novo check-in na tabela 'checkins' do Supabase
         const { error } = await supabase.from("checkins").insert([checkInData]);
 
         if (error) {
@@ -62,7 +61,7 @@ function Home() {
           alert("Não foi possível salvar seu check-in. Tente novamente.");
         } else {
           alert(`Check-in realizado com sucesso!`);
-          // A atualização automática já vai buscar o novo check-in.
+          
         }
       },
       (error) => {
@@ -110,6 +109,7 @@ function Home() {
               <h1>AABB</h1>
               <p>Horario medio de chegada: {time}</p>
             </li>
+            
           </ol>
         </aside>
       </div>
