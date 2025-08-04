@@ -12,7 +12,6 @@ type CheckIn = {
 };
 
 function Home() {
-  const time = "08:30";
   const [checkIns, setCheckIns] = useState<CheckIn[]>([]);
 
   // Carrega check-ins do SERVIDOR ao iniciar e a cada 5 segundos
@@ -87,27 +86,27 @@ function Home() {
           <ol className="stopList">
             <li className="stop" id="cosmos">
               <h1>Cosmos</h1>
-              <p>Horario medio de chegada: {time}</p>
+              
             </li>
             <li className="stop" id="pracaMatriz">
               <h1>Praca Matriz</h1>
-              <p>Horario medio de chegada: {time}</p>
+              
             </li>
             <li className="stop" id="pracaPirulitos">
               <h1>Praca Pirulitos</h1>
-              <p>Horario medio de chegada: {time}</p>
+              
             </li>
             <li className="stop" id="policlinica">
               <h1>Policlinica</h1>
-              <p>Horario medio de chegada: {time}</p>
+             
             </li>
             <li className="stop" id="mercadinho">
               <h1>Mercadinho D.</h1>
-              <p>Horario medio de chegada: {time}</p>
+             
             </li>
             <li className="stop" id="aabb">
               <h1>AABB</h1>
-              <p>Horario medio de chegada: {time}</p>
+            
             </li>
             
           </ol>
