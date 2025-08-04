@@ -18,9 +18,6 @@ export function LocationMarker({ onPositionChange }: LocationMarkerProps) {
   const [accuracy, setAccuracy] = useState<number>(0);
 
   const map = useMapEvents({
-    click() {
-      map.locate();
-    }
   });
 
   useEffect(() => {

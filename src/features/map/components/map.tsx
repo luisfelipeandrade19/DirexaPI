@@ -96,13 +96,13 @@ function Map({ checkIns = [], busPosition = null }: MapProps) {
   const [currentStop, setCurrentStop] = useState<BusStop | null>(null);
   const [mapCenter, setMapCenter] = useState<[number, number]>([-5.179671654506646, -40.669630109201194]);
   
-  // NOVO: Estado para paradas visitadas
+
   const [visitedStops, setVisitedStops] = useState<number[]>([]);
   
-  // NOVO: Estado para posição do ônibus no formato LatLng
+
   const [busLatLng, setBusLatLng] = useState<LatLng | null>(null);
 
-  // NOVO: Converter posição do ônibus para LatLng
+  
   useEffect(() => {
     if (busPosition) {
       setBusLatLng(new L.LatLng(busPosition.lat, busPosition.lng));
@@ -111,22 +111,21 @@ function Map({ checkIns = [], busPosition = null }: MapProps) {
     }
   }, [busPosition]);
 
-  // ATUALIZADO: Callback melhorado para entrada nas paradas
+ 
   const handleBusStopEnter = (stop: BusStop, type: 'user_enter' | 'bus_arrived' = 'user_enter') => {
     if (type === 'bus_arrived') {
-      // Ônibus chegou na parada
+      
       if (!visitedStops.includes(stop.id)) {
         setVisitedStops(prev => [...prev, stop.id]);
         setCurrentStop(stop);
         
-        // Opcional: notificação ou som
+        
         console.log(`Ônibus chegou na parada: ${stop.name}`);
         
-        // Remover o alert e substituir por um toast ou notificação menos intrusiva
-        // alert(`Ônibus chegou na parada: ${stop.name}`);
+  
       }
     } else {
-      // Usuário entrou na parada
+      
       if (currentStop?.id !== stop.id) {
         setCurrentStop(stop);
         console.log(`Usuário entrou na parada: ${stop.name}`);
