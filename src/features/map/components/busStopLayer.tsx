@@ -14,7 +14,7 @@ interface BusStopLayerProps {
   userPosition: L.LatLng | null;
   busPosition?: L.LatLng | null; // NOVO: posição do ônibus
   visitedStops?: number[]; // NOVO: paradas visitadas
-  onBusStopEnter: (stop: BusStop, type?: 'user_enter' | 'bus_arrived') => void;
+  onBusStopEnter: (stop: BusStop, type: 'user_enter' | 'bus_arrived') => void;
 }
 
 function BusStopLayer({ 
@@ -26,17 +26,10 @@ function BusStopLayer({
 }: BusStopLayerProps) {
   const map = useMap();
 
-  // Verificação de proximidade do usuário (mantida como estava)
+ 
   const checkBusStopProximity = useCallback(() => {
     if (!userPosition) return;
-
-    busStops.forEach((stop) => {
-      const distance = map.distance(userPosition, [stop.lat, stop.lng]);
-      if (distance <= stop.radius) {
-        onBusStopEnter(stop, 'user_enter');
-      }
-    });
-  }, [userPosition, busStops, onBusStopEnter, map]);
+  }, [userPosition]);
 
   // NOVA: Verificação do ônibus nas paradas
   const checkBusAtStop = useCallback(() => {
@@ -61,6 +54,39 @@ function BusStopLayer({
 
   return (
     <>
+     {busStops.map((stop) => (
+        <Circle
+          key={`bus-stop-${stop.id}`}
+          center={[stop.lat, stop.lng]}
+          radius={stop.radius}
+          pathOptions={{ 
+            color: "#3b82f6", 
+            fillColor: "#3b82f6",
+            fillOpacity: 0.2,
+            weight: 2
+          }}
+          eventHandlers={{
+            click: () => onBusStopEnter(stop, "user_enter")
+          }}
+        />
+      ))}
+
+    {busStops.map((stop) => (
+        <Circle
+          key={`bus-stop-${stop.id}`}
+          center={[stop.lat, stop.lng]}
+          radius={stop.radius}
+          pathOptions={{ 
+            color: "#3b82f6", 
+            fillColor: "#3b82f6",
+            fillOpacity: 0.2,
+            weight: 2
+          }}
+          eventHandlers={{
+            click: () => onBusStopEnter(stop, 'user_enter')
+          }}
+        />
+      ))}
       {busStops.map((stop) => {
         const isVisited = visitedStops.includes(stop.id);
         const isBusAtStop = busPosition && 

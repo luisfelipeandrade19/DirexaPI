@@ -11,5 +11,5 @@ export interface BusStop {
 export interface BusStopLayerProps {
   busStops: BusStop[];
   userPosition: LatLng | null;
-  onBusStopEnter: (stop: BusStop) => void;
+  onBusStopEnter: (stop: BusStop, type: 'user_enter') => void;
 }

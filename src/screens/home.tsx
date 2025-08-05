@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ButtonForm from "../components/ui/buttonForm";
 import Map from "../features/map/components/map";
 import "./css/home.css";
-import { supabase } from "../lib/api/supaBaseClient"; // Importe o cliente Supabase
+import { supabase } from "../lib/api/supaBaseClient";
 
 type CheckIn = {
   id: number;
@@ -13,6 +13,9 @@ type CheckIn = {
 
 function Home() {
   const [checkIns, setCheckIns] = useState<CheckIn[]>([]);
+  const [currentStopId, setCurrentStopId] = useState<number | null>(1);
+  const [busPosition, setBusPosition] = useState<{lat: number, lng: number} | null>(null)
+
   useEffect(() => {
     const loadCheckInsFromServer = async () => {
       try {
@@ -28,6 +31,9 @@ function Home() {
 
         if (data) {
           setCheckIns(data);
+          if(data.length > 0) {
+            setBusPosition({lat: data[0].lat, lng: data[0].lng})
+          }
         }
       } catch (error) {
         console.error("Erro ao carregar check-ins do servidor:", error);
@@ -66,11 +72,20 @@ function Home() {
       options
     );
   };
+
+  const updateCurrentStop = (stopId: number) => {
+    setCurrentStopId(stopId)
+  }
+
   return (
     <>
       <div className="homePage container">
         <aside className="left" id="map">
-          <Map checkIns={checkIns} />
+          <Map 
+            checkIns={checkIns} 
+            busPosition={busPosition}
+            onStopChange={updateCurrentStop}
+          />
           <ButtonForm
             id="checkInButtom"
             value="Fazer Check-In"
@@ -80,23 +95,23 @@ function Home() {
         <aside className="right" id="routes">
           <h1 id="title">Paradas</h1>
           <ol className="stopList">
-            <li className="stop" id="cosmos">
+            <li className={`stop ${currentStopId === 1 ? 'active' : ''}`}>
               <h1>Cosmos</h1>
             </li>
-            <li className="stop" id="pracaMatriz">
-              <h1>Praca Matriz</h1>
+            <li className={`stop ${currentStopId === 4 ? 'active' : ''}`}>
+              <h1>Praça Matriz</h1>
             </li>
-            <li className="stop" id="pracaPirulitos">
-              <h1>Praca Pirulitos</h1>
+            <li className={`stop ${currentStopId === 2 ? 'active' : ''}`}>
+              <h1>Praça Pirulitos</h1>
             </li>
-            <li className="stop" id="policlinica">
-              <h1>Policlinica</h1>
+            <li className={`stop ${currentStopId === 3 ? 'active' : ''}`}>
+              <h1>Policlínica</h1>
             </li>
-            <li className="stop" id="mercadinho">
+            <li className={`stop ${currentStopId === 5 ? 'active' : ''}`}>
               <h1>Mercadinho D.</h1>
             </li>
-            <li className="stop" id="aabb">
-              <h1>AABB</h1>
+            <li className={`stop ${currentStopId === 6 ? 'active' : ''}`}>
+              <h1>Restaurante S.T</h1>
             </li>
           </ol>
         </aside>
@@ -104,5 +119,6 @@ function Home() {
     </>
   );
 }
+
 
 export default Home;

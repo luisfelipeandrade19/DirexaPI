@@ -19,14 +19,6 @@ const checkInIcon = new L.DivIcon({
   iconAnchor: [10, 10],
 });
 
-
-const busIcon = new L.DivIcon({
-  className: "bus-icon",
-  html: '<div style="background-color: #e11d48; width: 24px; height: 24px; border-radius: 4px; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: bold;">🚌</div>',
-  iconSize: [24, 24],
-  iconAnchor: [12, 12],
-});
-
 interface BusStop {
   id: number;
   lat: number;
@@ -62,7 +54,7 @@ const busStops: BusStop[] = [
     lat: -5.174086660473039,
     lng: -40.66791156967396, 
     radius: 100,
-    name: "Parada Correios",
+    name: "Parada Matriz",
   },
   {
     id: 5, 
@@ -87,22 +79,15 @@ interface MapProps {
     lng: number;
     timestamp: string;
   }>;
-  // NOVO: Props para posição do ônibus
   busPosition?: { lat: number; lng: number } | null;
+  onStopChange?: (stopId: number) => void;
 }
 
-function Map({ checkIns = [], busPosition = null }: MapProps) {
+function Map({ checkIns = [], busPosition = null, onStopChange }: MapProps) {
   const [userPosition, setUserPosition] = useState<LatLng | null>(null);
-  const [currentStop, setCurrentStop] = useState<BusStop | null>(null);
-  const [mapCenter, setMapCenter] = useState<[number, number]>([-5.179671654506646, -40.669630109201194]);
-  
-
   const [visitedStops, setVisitedStops] = useState<number[]>([]);
-  
-
   const [busLatLng, setBusLatLng] = useState<LatLng | null>(null);
 
-  
   useEffect(() => {
     if (busPosition) {
       setBusLatLng(new L.LatLng(busPosition.lat, busPosition.lng));
@@ -111,33 +96,12 @@ function Map({ checkIns = [], busPosition = null }: MapProps) {
     }
   }, [busPosition]);
 
- 
-  const handleBusStopEnter = (stop: BusStop, type: 'user_enter' | 'bus_arrived' = 'user_enter') => {
-    if (type === 'bus_arrived') {
-      
-      if (!visitedStops.includes(stop.id)) {
-        setVisitedStops(prev => [...prev, stop.id]);
-        setCurrentStop(stop);
-        
-        
-        console.log(`Ônibus chegou na parada: ${stop.name}`);
-        
-  
-      }
-    } else {
-      
-      if (currentStop?.id !== stop.id) {
-        setCurrentStop(stop);
-        console.log(`Usuário entrou na parada: ${stop.name}`);
-      }
+  const handleBusStopEnter = (stop: BusStop, type: 'user_enter' | 'bus_arrived') => {
+    if (type === 'bus_arrived' && !visitedStops.includes(stop.id)) {
+      setVisitedStops(prev => [...prev, stop.id]);
+      onStopChange?.(stop.id);
     }
   };
-
-  useEffect(() => {
-    if (userPosition) {
-      setMapCenter([userPosition.lat, userPosition.lng]);
-    }
-  }, [userPosition]);
 
   const validCheckIns = checkIns.filter(
     (checkIn) =>
@@ -149,7 +113,6 @@ function Map({ checkIns = [], busPosition = null }: MapProps) {
 
   return (
     <div style={{ position: 'relative' }}>
-      {/* NOVO: Painel de informações */}
       <div style={{
         position: 'absolute',
         top: '10px',
@@ -161,17 +124,6 @@ function Map({ checkIns = [], busPosition = null }: MapProps) {
         minWidth: '200px',
         boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
       }}>
-        <h4 style={{ margin: '0 0 10px 0', fontSize: '14px' }}>Status do Ônibus</h4>
-        <div style={{ fontSize: '12px', marginBottom: '5px' }}>
-          <strong>Paradas visitadas:</strong> {visitedStops.length}/{busStops.length}
-        </div>
-        {currentStop && (
-          <div style={{ fontSize: '12px', color: '#10b981' }}>
-            <strong>Parada atual:</strong> {currentStop.name}
-          </div>
-        )}
-        
-        {/* Legenda das cores */}
         <div style={{ marginTop: '15px', fontSize: '11px' }}>
           <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>Legenda:</div>
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '3px' }}>
@@ -192,7 +144,7 @@ function Map({ checkIns = [], busPosition = null }: MapProps) {
 
       <MapContainer
         id="myMap"
-        center={mapCenter}
+        center={[-5.179671654506646, -40.669630109201194]} // Coordenadas fixas
         zoom={13}
         scrollWheelZoom={true}
       >
@@ -203,31 +155,13 @@ function Map({ checkIns = [], busPosition = null }: MapProps) {
 
         <LocationMarker onPositionChange={setUserPosition} />
 
-        {/* ATUALIZADO: BusStopLayer com novas props */}
         <BusStopLayer
           busStops={busStops}
           userPosition={userPosition}
-          busPosition={busLatLng} // NOVO: posição do ônibus
-          visitedStops={visitedStops} // NOVO: paradas visitadas
+          busPosition={busLatLng}
+          visitedStops={visitedStops}
           onBusStopEnter={handleBusStopEnter}
         />
-
-        {/* NOVO: Marker do ônibus */}
-        {busPosition && (
-          <Marker
-            position={[busPosition.lat, busPosition.lng]}
-            icon={busIcon}
-          >
-            <Popup>
-              <div>
-                <strong>Ônibus</strong><br/>
-                Lat: {busPosition.lat.toFixed(6)}<br/>
-                Lng: {busPosition.lng.toFixed(6)}<br/>
-                Paradas visitadas: {visitedStops.length}
-              </div>
-            </Popup>
-          </Marker>
-        )}
 
         {validCheckIns.map((checkIn) => (
           <Marker

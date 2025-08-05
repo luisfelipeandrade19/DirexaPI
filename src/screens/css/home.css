@@ -142,3 +142,8 @@
     font-size: 28px;
   }
 }
+
+.homePage .stop.active {
+  background-color: #7f80e9;
+  color: #d9d9d9;
+}
